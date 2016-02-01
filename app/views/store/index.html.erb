@@ -4,6 +4,7 @@
 
 <h1>Your Pragmatic Catalog</h1>
 
+You've been here <%= pluralize(@count.to_i, "time") %>
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
     <% cache ['entry', product] do %>
