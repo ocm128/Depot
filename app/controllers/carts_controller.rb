@@ -1,5 +1,8 @@
 class CartsController < ApplicationController
 
+  # Its not apply the authorize method for create, update and destroy carts
+  skip_before_action :authorize, only: [:create, :update, :destroy]
+
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 

@@ -1,5 +1,8 @@
 class LineItemsController < ApplicationController
 
+  # It not applies the authorize method and permits create line_items
+  skip_before_action :authorize, only: :create
+
   include CurrentCart # includes current_cart concern model
   before_action :set_cart, only: [:create]  # current_cart method is to be involved before create() action
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
